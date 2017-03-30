@@ -54,8 +54,8 @@ $(document).ready(function () {
 
             //Failsafe for limitval
             var flimit = parseInt(limitval);
-            if ( (Number.isNaN(flimit)) || (flimit > 1000) )
-                flimit = "1000";
+            if ( (Number.isNaN(flimit)) || (flimit > 100000) )
+                flimit = "100000";
             else
                 flimit = limitval;
 
