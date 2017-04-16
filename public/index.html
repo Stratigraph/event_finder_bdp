@@ -233,17 +233,17 @@
 
 				<div>
 				<select id="apiSelect" name="apiSelect" class="select-style">
-						<option value="GdeltBigQuery">GDELT- BDP API</option>
-						<option disabled value="ElDiablo">EL: DIABLO</option>
-						<option disabled value="Icews">ICEWS</option>
+						<option value="bdpArtifacts">BDP GDELT Artifacts</option>
+						<option value="bdpEntities">BDP Event Entities</option>
 					</select>	
 				</div>
 
 				<div id="apiDay">
 					<form id="bqApiForm">
+						<div id="timeGroup" style="display: none">
 						<div id="dayLabel">Start Date (day / month / year):</div>
-						<input type="text" name="dayinput" id="dayinput" value="1">				
-						<select id="monthselect" name="monthselect" class="select-style">
+						<input type="text" name="dayinput" id="dayinput" value="1" >				
+						<select id="monthselect" name="monthselect" class="select-style" >
 							<option value="01">01</option>
 							<option value="02">02</option>
 							<option value="03">03</option>
@@ -257,7 +257,8 @@
 							<option value="11">11</option>
 							<option value="12">12</option>
 						</select>					
-						<select id="yearselect" name="yearselect" class="select-style">
+						<select id="yearselect" name="yearselect" class="select-style" >
+							<option value="2017">2017</option>
 							<option value="2016">2016</option>
 							<option value="2015">2015</option>
 							<option value="2014">2014</option>
@@ -273,7 +274,8 @@
 
 						<div id="numDaysDiv" class="numDaysDiv">
 							<label class="numlabel">+ days:</label>
-							<input type="text" id="numDays" name="numDays" value="1">
+							<input type="text" id="numDays" name="numDays" value="30" >
+						</div>
 						</div>
 
 
@@ -285,7 +287,7 @@
 						</div>
 
 						<div id="bqsubmitdiv">
-							<button id="bqgdeltbtn" class="send">Submit BDP Query</button>
+							<button id="bqgdeltbtn" class="send">Submit Query</button>
 							<div id="gdeltspin" class="buttonspin"></div>
 						</div>
 

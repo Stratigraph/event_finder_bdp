@@ -51,6 +51,8 @@ $(document).ready(function () {
             var monthval = $("[name='monthselect']").val();
             var yearval = $("[name='yearselect']").val();
             var limitval = $("[name='eventlimit']").val();
+            var queryType = $("#apiSelect").val();
+            var dayspan = $("[name='numDays']").val();
 
             //Failsafe for limitval
             var flimit = parseInt(limitval);
@@ -59,8 +61,8 @@ $(document).ready(function () {
             else
                 flimit = limitval;
 
-            $.post('/bqgdelt', {day: dayval, month: monthval, year: yearval, 
-                                limit: flimit, key: keyword}, printResponse);
+            $.post('/bqgdelt', {qtype: queryType, day: dayval, month: monthval, year: yearval, 
+                                numdays: dayspan, limit: flimit, key: keyword}, printResponse);
         }
     });
 
@@ -97,6 +99,14 @@ $(document).ready(function () {
 
     $("#toneRadio").bind('change', function() {
         changeMarkerData();
+    });
+
+    $("#apiSelect").bind('change', function() {
+        if ($("#apiSelect").val() == 'bdpEntities') {
+            $("#timeGroup").css('display', 'block');
+        } else {
+             $("#timeGroup").css('display', 'none');           
+        }
     });
 
     // Tooltips
@@ -199,7 +209,7 @@ function validateDay() {
 
 function enableForms() {
 
-    enableButton("bqgdeltbtn", "Submit BDP Query");
+    enableButton("bqgdeltbtn", "Submit Query");
     enableButton("loadDataBtn", "Load Data");
     
 }
